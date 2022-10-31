@@ -4,5 +4,9 @@ const refs = {
 };
 
 const { inputRef, nameRef } = refs;
-const onChangeNameInput = event => (nameRef.textContent = event.currentTarget.value);
+
+const onChangeNameInput = ({ currentTarget: { value } }) => {
+    nameRef.textContent = value.trim() || 'Anonymous';
+};
+
 inputRef.addEventListener(`input`, onChangeNameInput);
